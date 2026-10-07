@@ -1,0 +1,340 @@
+<div class="invitation-container" (click)="onUserInteraction()">
+  <!-- Audio Background Music -->
+  <audio #backgroundAudio loop>
+    <source src="assets/audio/background-music.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+
+  <!-- Music Control Button -->
+  <div class="music-controls">
+    <button class="music-toggle-btn" (click)="toggleAudio()" [class.playing]="isAudioPlaying">
+      <span *ngIf="isAudioPlaying">🎵</span>
+      <span *ngIf="!isAudioPlaying">🔇</span>
+    </button>
+  </div>
+
+  <!-- Envelope Opening Section -->
+  <section class="envelope-section" [class.opened]="isEnvelopeOpen" #envelopeContainer>
+    <div class="envelope-backdrop">
+      <div class="envelope-container">
+        <div class="envelope-flap"></div>
+        <div class="envelope-body">
+          <div class="envelope-content">
+            <div class="slide-instruction" *ngIf="!isEnvelopeOpen">
+              <p class="slide-text"></p>
+              <div class="slide-arrow">👆</div>
+            </div>
+            <button class="open-envelope-btn" (click)="openEnvelope()" *ngIf="!isEnvelopeOpen">
+              Abrir invitación
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Diamond decoration -->
+      <div class="diamond-decoration">
+        <div class="diamond diamond-1"></div>
+        <div class="diamond diamond-2"></div>
+        <div class="diamond diamond-3"></div>
+        <div class="diamond diamond-4"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content (appears after envelope opens) -->
+  <div class="main-invitation" [class.visible]="isEnvelopeOpen" id="main-content">
+
+    <!-- Hero Section with Baby Photo and Countdown -->
+    <section class="hero-photo-section">
+      <div class="photo-container">
+        <div class="main-photo">
+          <img src="assets/images/principal.jpg" alt="Sofía" class="baby-photo">
+          <div class="photo-overlay">
+            <div class="baptism-info">
+              <span class="baptism-label">Bautizo</span>
+              <h1 class="child-name-hero">{{ childName }}</h1>
+              <div class="date-info">
+                <span class="event-date">07/03/2026</span>
+                <!--<span class="event-time">01:00 pm</span>-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Countdown Timer -->
+        <div class="countdown-display">
+          <div class="countdown-item">
+            <span class="count-number">{{ countdown.days }}</span>
+            <span class="count-label">Días</span>
+          </div>
+          <div class="countdown-item">
+            <span class="count-number">{{ countdown.hours }}</span>
+            <span class="count-label">Horas</span>
+          </div>
+          <div class="countdown-item">
+            <span class="count-number">{{ countdown.minutes }}</span>
+            <span class="count-label">Minutos</span>
+          </div>
+          <div class="countdown-item">
+            <span class="count-number">{{ countdown.seconds }}</span>
+            <span class="count-label">Segundos</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Parent Quote -->
+      <div class="parent-quote">
+        <p class="quote-text">Doy gracias a Dios Nuestro señor por:<br>
+          Darme el don de la vida.</p>
+        <p class="quote-text">A mis padres por esperarme con amor y recibirme
+          con alegría.</p>
+        <p class="quote-text">A mis padrinos por guiarme en el camino de la
+          luz.</p>
+        <p class="quote-text">Y a ti por acompañarme en el día mas importante
+          de mi vida.</p>
+        <p class="quote-text">Hoy Dios me ha llamado por mi nombre.</p>
+        <p class="quote-author">- {{ childName }}</p>
+      </div>
+    </section>
+
+    <!-- Extended Quotes Section -->
+    <section class="extended-quotes-section">
+      <div class="quotes-container">
+        <div class="mama-quote">
+          <p class="quote-text">{{ motherQuote }}</p>
+          <p class="quote-author">- Mamá de {{ childName }}</p>
+        </div>
+
+        <div class="papa-quote">
+          <p class="quote-text">{{ fatherQuote }}</p>
+          <p class="quote-author">- Papá de {{ childName }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Mentions Section -->
+    <section class="special-mentions-section">
+      <h2 class="section-title">Menciones Especiales</h2>
+      <p class="mentions-subtitle">Queremos mencionar a los padrinos de la pequeña {{ childName }}.</p>
+      <p class="mentions-description">Querida ahijada, hoy naces al amor puro de Dios. Como tus padrinos, prometemos cuidar tus pasos, nutrir tu fe y ser un refugio seguro para ti siempre. Eres un regalo del cielo</p>
+
+      <div class="godparents-container">
+        <div class="godparent-card" *ngFor="let godparent of parents">
+          <div class="godparent-photo">
+            <img [src]="godparent.photo" [alt]="godparent.name" class="godparent-image">
+          </div>
+          <div class="godparent-info">
+            <span class="godparent-role">{{ godparent.role }}</span>
+            <h3 class="godparent-name">{{ godparent.name }}</h3>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <div class="godparents-container">
+        <div class="godparent-card" *ngFor="let godparent of godparents">
+          <div class="godparent-photo">
+            <img [src]="godparent.photo" [alt]="godparent.name" class="godparent-image">
+          </div>
+          <div class="godparent-info">
+            <span class="godparent-role">{{ godparent.role }}</span>
+            <h3 class="godparent-name">{{ godparent.name }}</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Religious Ceremony Section -->
+    <section class="ceremony-section">
+      <div class="location-marker">📍</div>
+      <h2 class="ceremony-title">Ceremonia religiosa:</h2>
+      <p class="ceremony-location">{{ ceremonyLocation }}</p>
+
+      <div class="ceremony-details">
+        <div class="ceremony-info">
+          <h3>{{ ceremonyVenue }}</h3>
+          <p>{{ ceremonyAddress }}</p>
+          <p class="ceremony-time">{{ ceremonyTime }}</p>
+        </div>
+
+        <div class="map-container">
+          <div class="map-placeholder">
+            <iframe src="https://www.google.com/maps?q=Z%C3%B3calo+CDMX&amp;output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <button class="map-button" (click)="openLink(ceremonyMapLink)">
+            Abrir en Google Maps
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reception Section -->
+    <section class="ceremony-section">
+      <div class="location-marker">📍</div>
+      <h2 class="ceremony-title">Recepción:</h2>
+      <p class="ceremony-location">{{ ceremonyLocation }}</p>
+
+      <div class="ceremony-details">
+        <div class="ceremony-info">
+          <h3>Jardín de Eventos Ejemplo</h3>
+          <p>Calle Ejemplo 45, Centro, 06000 Ciudad de México, CDMX</p>
+          <p class="ceremony-time">{{ receptionTime }}</p>
+        </div>
+
+        <div class="map-container">
+          <div class="map-placeholder">
+            <iframe src="https://www.google.com/maps?q=Z%C3%B3calo+CDMX&amp;output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <button class="map-button" (click)="openLink('https://maps.google.com/?q=Z%C3%B3calo+CDMX')">
+            Abrir en Google Maps
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section class="photo-gallery-section">
+      <h2 class="gallery-title">Pequeña Galería de fotos 📸</h2>
+
+      <div class="interactive-gallery">
+        <div class="photo-stack-container">
+          <div class="draggable-photo photo-1"
+               [style.transform]="photoTransforms.photo1"
+               (mousedown)="startDrag($event, 'photo1')"
+               (touchstart)="startDrag($event, 'photo1')">
+            <div class="polaroid-frame">
+              <img src="assets/images/primeranio.JPG" alt="{{ childName }}" class="polaroid-image">
+              <div class="polaroid-caption">Mi primer año</div>
+            </div>
+          </div>
+
+          <div class="draggable-photo photo-2"
+               [style.transform]="photoTransforms.photo2"
+               (mousedown)="startDrag($event, 'photo2')"
+               (touchstart)="startDrag($event, 'photo2')">
+            <div class="polaroid-frame">
+              <img src="assets/images/primerpastel.JPG" alt="{{ childName }}" class="polaroid-image">
+              <div class="polaroid-caption">Mi primer pastel</div>
+            </div>
+          </div>
+
+          <div class="draggable-photo photo-3"
+               [style.transform]="photoTransforms.photo3"
+               (mousedown)="startDrag($event, 'photo3')"
+               (touchstart)="startDrag($event, 'photo3')">
+            <div class="polaroid-frame">
+              <img src="assets/images/miregistro.JPG" alt="{{ childName }}" class="polaroid-image">
+              <div class="polaroid-caption">Mi registro</div>
+            </div>
+          </div>
+
+          <div class="draggable-photo photo-4"
+               [style.transform]="photoTransforms.photo4"
+               (mousedown)="startDrag($event, 'photo4')"
+               (touchstart)="startDrag($event, 'photo4')">
+            <div class="polaroid-frame">
+              <img src="assets/images/primerosdias.JPG" alt="{{ childName }}" class="polaroid-image">
+              <div class="polaroid-caption">Mis primeros días</div>
+            </div>
+          </div>
+
+          <div class="draggable-photo photo-5"
+               [style.transform]="photoTransforms.photo5"
+               (mousedown)="startDrag($event, 'photo5')"
+               (touchstart)="startDrag($event, 'photo5')">
+            <div class="polaroid-frame">
+              <img src="assets/images/nacimiento.JPG" alt="{{ childName }}" class="polaroid-image">
+              <div class="polaroid-caption">Mi nacimiento</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-instructions">
+          <p class="gallery-action">🖱️ Desliza las fotos para verlas mejor</p>
+          <button class="reset-photos-btn" (click)="resetPhotos()">
+            📷 Reorganizar fotos
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP Confirmation Section -->
+    <section class="rsvp-confirmation-section">
+      <h2 *ngIf="showSectionConfirmation">Confirma tu asistencia</h2>
+      <p class="rsvp-subtitle" *ngIf="showSectionConfirmation">Tu presencia es muy importante para nosotros</p>
+      <p class="rsvp-subtitle" *ngIf="showSectionConfirmation">*Por favor confirma tu asistencia antes del jueves 26/02/2026</p>
+
+      <form class="rsvp-form" *ngIf="showSectionConfirmation" (ngSubmit)="confirmAttendance()">
+        @for (access of familyAccesses; track access.id) {
+          <div class="guest-card">
+            <div class="guest-info">
+              <label for="{{access.id}}">Nombre del Invitado</label>
+              <input
+                type="text"
+                [(ngModel)]="access.memberName"
+                name="name-{{ access.id }}"
+                required
+                class="guest-input"
+                readonly
+              />
+            </div>
+
+            <div class="attendance-selection">
+              <label class="attendance-label">¿Confirmas tu asistencia?</label>
+              <div class="radio-options">
+                <label class="radio-option">
+                  <input
+                    type="radio"
+                    name="attendance-{{ access.id }}"
+                    [value]="true"
+                    [(ngModel)]="access.confirmed"
+                  />
+                  <span class="radio-custom"></span>
+                  <span class="option-text">Sí, asistiré con mucho gusto</span>
+                </label>
+                <label class="radio-option">
+                  <input
+                    type="radio"
+                    name="attendance-{{ access.id }}"
+                    [value]="false"
+                    [(ngModel)]="access.confirmed"
+                  />
+                  <span class="radio-custom"></span>
+                  <span class="option-text">No podré asistir</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        }
+
+        <button
+          type="submit"
+          class="confirm-button"
+          [disabled]="isSubmitting"
+        >
+          {{ isSubmitting ? 'Confirmando...' : 'Confirmar Asistencia' }}
+        </button>
+      </form>
+
+      <!-- Success Message -->
+      <div class="success-message" *ngIf="!showSectionConfirmation">
+        <div class="success-icon">✨</div>
+        <ng-container *ngIf="showMessageConfirmation">
+          <h3>¡Gracias por confirmar!</h3>
+          <p>Nos llena de alegría saber que nos acompañarán en el bautizo de {{ childName }} el próximo 07 de marzo.</p>
+        </ng-container>
+        <ng-container *ngIf="!showMessageConfirmation">
+          <h3>¡Gracias por su respuesta!</h3>
+        </ng-container>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="invitation-footer">
+      <div class="footer-content">
+        <h3 class="footer-name">{{ childName }}</h3>
+        <p class="footer-date">7 • Marzo • 2026</p>
+        <p class="footer-event">MI BAUTIZO</p>
+      </div>
+    </footer>
+
+  </div>
+</div>

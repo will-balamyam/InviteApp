@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-between align-items-center">
+  <h3>Invitaciones</h3>
+  <button class="d-flex btn btn-primary" routerLink="/admin/invitations/add"><i class="material-icons">add_circle</i> Agregar</button>
+</div>
+
+<div class="d-flex justify-content-center pt-4">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre del evento</th>
+      <th scope="col">Código</th>
+      <th scope="col">Hashtag</th>
+      <th scope="col">Fecha del evento</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (invitation of listInvitations; track invitation.id) {
+        <tr>
+          <th scope="row">{{ invitation.id }}</th>
+          <td>{{ invitation.eventName }}</td>
+          <td>{{ invitation.eventCode }}</td>
+          <td>{{ invitation.eventHashtag }}</td>
+          <td>{{ invitation.eventDate | date: 'short' }}</td>
+          <td>{{ invitation.eventDescription }}</td>
+          <td>
+            <button class="d-inline-flex btn btn-success btn-sm me-2" [routerLink]="['/admin/invitations/edit/'+invitation.id]">
+              <i class="material-icons">edit</i>
+            </button>
+            <button class="d-inline-flex btn btn-danger btn-sm" (click)="confirmDelete(invitation.id!)">
+              <i class="material-icons">delete</i>
+            </button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

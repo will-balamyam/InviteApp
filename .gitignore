@@ -1,0 +1,18 @@
+/invitations-api/node_modules
+/invitations-api/dist
+invitations-front/node_modules
+invitations-front/dist
+.venv
+
+# Secretos y configuración local
+.env
+.env.*
+!.env.example
+
+# IDE / sistema
+.idea/
+.vscode/
+.DS_Store
+
+# Archivos personales que no van al repo
+_local/

@@ -1,0 +1,618 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat&family=Open+Sans:wght@300;400;600;700&display=swap');
+
+.invitation-container {
+  font-family: 'Open Sans', sans-serif;
+  background: #ffffff;
+  color: #000;
+  //max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+// Hero Section
+.video-hero-container {
+  position: relative;
+  height: 100vh; // Altura fija de viewport completo
+  overflow: hidden;
+  background-color: #f8f6f3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; // ← Cambiar de center a flex-end
+  padding-bottom: 40px; // Agregar espacio desde el fondo
+  
+  // Responsive: ajustar altura según dispositivo
+  @media (max-width: 768px) {
+    height: 100vh; // Mantener altura completa en móvil
+    padding-bottom: 30px;
+  }
+  
+  @media (max-width: 480px) {
+    height: 90vh; // Reducir ligeramente en móviles pequeños
+    padding-bottom: 20px;
+  }
+  
+  // Para pantallas muy cortas
+  @media (max-height: 600px) {
+    height: 100vh;
+  }
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-section {
+  position: relative;
+  z-index: 2;
+  flex: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  margin-top: auto;
+  margin-bottom: 10px;
+
+  @media (max-width: 768px) {
+    padding: 50px;
+    margin-bottom: 8px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 50px;
+    margin-bottom: 5px;
+  }
+}
+
+.hero-overlay {
+  //padding: 3rem 2rem;
+  //padding-top: 40rem;
+  //border-radius: 20px;
+  //text-align: center;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.couple-names {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
+  color: #fff;
+  margin-bottom: 0.3rem;
+  font-weight: normal;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  
+  @media (max-width: 768px) {
+    font-size: 2.8rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 2.2rem;
+    margin-bottom: 0.1rem;
+  }
+  
+  @media (max-width: 375px) {
+    font-size: 0rem;
+  }
+}
+
+.wedding-date {
+  font-size: 1.3rem;
+  color: #fff;
+  //font-weight: 400;
+  margin-bottom: 0;
+  //letter-spacing: 2px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+  }
+  
+  @media (max-width: 375px) {
+    font-size: 0.85rem;
+  }
+}
+
+.family-name {
+  font-size: 1.1rem;
+  color: #666;
+
+  strong {
+    color: #000000;
+  }
+}
+
+// Countdown Section
+.countdown-section {
+  //padding: 2rem 1rem;
+  //text-align: center;
+  position: relative;
+  z-index: 2;
+  flex: 0 0 auto; // No crece ni se encoge
+  padding: 0 20px 40px 20px; // Espacio inferior para separar del borde inferior
+  
+  @media (max-width: 768px) {
+    padding: 0 10px 30px 10px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0 5px 20px 5px;
+  }
+}
+
+.countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    gap: 15px;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 10px;
+  }
+}
+
+.countdown-item {
+  text-align: center;
+  min-width: 60px;
+
+  .countdown-digits {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff !important;
+    line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 1.6rem;
+    }
+    
+    @media (max-width: 375px) {
+      font-size: 1.4rem;
+    }
+  }
+
+  .countdown-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #fff;
+    //font-weight: 400;
+    //letter-spacing: 0.5px;
+    margin-top: 5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    
+    @media (max-width: 480px) {
+      font-size: 0.8rem;
+      margin-top: 3px;
+    }
+    
+    @media (max-width: 375px) {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+// Announcement Section
+.announcement-section {
+  background: #f8f6f3;
+  padding: 2rem 1.5rem;
+  text-align: center;
+
+  h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: #000000;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+  }
+}
+
+// Details Section
+.details-section {
+  padding: 2rem 1.5rem;
+  background: #ffffff;
+
+  h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+
+.event-card {
+  background: #f8f6f3;
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+
+  .event-image {
+    margin-bottom: 1rem;
+
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+  }
+
+  h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #000000;
+    margin-bottom: 0.5rem;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    color: #000000;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  h5 {
+    font-size: 1.1rem;
+    color: #000000;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+}
+
+.map-button {
+  background: #000000;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background: #704a32;
+    transform: translateY(-2px);
+  }
+}
+
+// Gallery Section
+.gallery-section {
+  .gallery-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+// RSVP Section
+.rsvp-section {
+  background: #f8f6f3;
+  padding: 2rem 1.5rem;
+  text-align: center;
+
+  h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: #000000;
+    margin-bottom: 0.5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    color: #000000;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  h4 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #000000;
+    margin-bottom: 0.5rem;
+  }
+
+  .no-kids {
+    color: #000000;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+}
+
+// Form Styles
+.rsvp-form {
+  text-align: left;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+
+  label {
+    display: block;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #e0d5c7;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: white;
+
+  &:focus {
+    outline: none;
+    border-color: #000000;
+  }
+}
+
+.checkbox-group {
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+    color: #666;
+
+    input[type="radio"] {
+      margin-right: 0.5rem;
+      width: auto;
+    }
+  }
+}
+
+.submit-button {
+  width: 100%;
+  background: #000000;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover:not(:disabled) {
+    background: #704a32;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.confirmation-message {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+
+  h3 {
+    color: #000000;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: #666;
+  }
+}
+
+// Save the Date Section
+.save-date-section {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background: white;
+
+  h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: #000000;
+    margin-bottom: 2rem;
+  }
+
+  .save-date-gallery {
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    h3, h4 {
+      font-family: 'Great Vibes', cursive;
+      color: #000000;
+      font-size: 2rem;
+      margin: 1rem 0;
+    }
+  }
+}
+
+// Gifts Section
+.gifts-section {
+  background: #f8f6f3;
+  padding: 2rem 1.5rem;
+  text-align: center;
+
+  h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: #000000;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+}
+
+.gift-store {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  .store-logo {
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+  }
+
+  h4 {
+    color: #000000;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+}
+
+.gift-button {
+  background: #000000;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background: #704a32;
+  }
+}
+
+// Hashtag Section
+.hashtag-section {
+  background: #000000;
+  color: white;
+  padding: 5rem 0rem;
+  text-align: center;
+  .hashtag-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    .hashtag-text h3 {
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+
+    .hashtag-info h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hashtag-info p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+  }
+}
+
+// Love Story Section
+.love-story-section {
+  padding: 2rem 1.5rem;
+  text-align: center;
+
+  h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: #000000;
+    margin-bottom: 2rem;
+  }
+
+  .story-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+}
+
+// Footer Section
+.footer-section {
+  background: #000000;
+  padding: 2rem 1.5rem;
+  text-align: center;
+
+  .footer-logo {
+    max-width: 300px;
+    height: auto;
+  }
+}
+
+// Responsive Design
+@media (max-width: 480px) {
+  .couple-names {
+    font-size: 2.8rem;
+  }
+
+  .countdown-item .countdown-digits {
+    font-size: 2rem;
+  }
+
+  .hashtag-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Ajusta según el diseño */
+  height: 80px; /* Ajusta según el diseño */
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 40%;
+  height: 100%;
+  object-fit: contain; /* Usa 'cover' si prefieres que la imagen llene el contenedor */
+}

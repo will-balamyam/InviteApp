@@ -1,0 +1,244 @@
+<div class="invitation-container" (click)="onUserInteraction()">
+  <!-- Audio Background Music -->
+  <audio #backgroundAudio loop>
+    <source src="assets/audio/background-music.mp3" type="audio/mpeg">
+    <source src="assets/audio/background-music.ogg" type="audio/ogg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+
+  <!-- Music Control Button -->
+  <div class="music-controls">
+    <button class="music-toggle-btn" (click)="toggleAudio()" [class.playing]="isAudioPlaying">
+      <span *ngIf="isAudioPlaying">🎵</span>
+      <span *ngIf="!isAudioPlaying">🔇</span>
+    </button>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-background">
+      <div class="flowers-decoration left-flowers"></div>
+      <div class="flowers-decoration right-flowers"></div>
+      <div class="cross-decoration"></div>
+      <div class="bees-decoration">
+        <div class="bee bee-1">🐝</div>
+        <div class="bee bee-2">🐝</div>
+        <div class="bee bee-3">🐝</div>
+      </div>
+      <div class="hero-content">
+        <h1 class="event-title">Mi Bautizo</h1>
+        <h2 class="subtitle">Y MI PRIMER AÑITO</h2>
+        <div class="dots-divider">• • • • • • • • • • • • • • • • • • • •</div>
+        <h3 class="child-name">SOFÍA</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gratitude Section -->
+  <section class="gratitude-section">
+    <div class="pink-flowers-bg">
+      <div class="gratitude-content">
+        <h2>Doy gracias a Dios Nuestro señor por:</h2>
+        <p class="golden-text">Darme el don de la vida.</p>
+        <p>A mis padres por esperarme con amor y recibirme<br>con alegría.</p>
+        <p>A mis padrinos por guiarme en el camino de la<br>luz.</p>
+        <p>Y a ti por acompañarme en el día mas importante<br>de mi vida.</p>
+        <p class="signature">Hoy Dios me ha llamado por mi nombre <strong>Sofía<br>Pérez López</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Section -->
+  <section class="photo-section">
+    <div class="photo-frame">
+      <div class="geometric-frame">
+        <img src="assets/images/party3.avif" alt="Sofía" class="child-photo">
+      </div>
+      <div class="decorative-elements">
+        <div class="butterfly butterfly-1">🦋</div>
+        <div class="butterfly butterfly-2">🦋</div>
+        <div class="butterfly butterfly-3">🦋</div>
+        <div class="bee-decoration">🐝</div>
+        <div class="flowers-accent"></div>
+        <div class="sun-decoration">☀️</div>
+      </div>
+      <h3 class="name-overlay">Sofía</h3>
+    </div>
+  </section>
+
+  <!-- Parents and Godparents Section -->
+  <section class="family-section">
+    <div class="family-content">
+      <h2 class="grateful-title">DOY GRACIAS POR EL DON DE LA</h2>
+      <h3 class="vida-text">VIDA, A MIS PADRES:</h3>
+
+      <div class="parents-info">
+        <p class="parent-name">María López Díaz</p>
+        <p class="parent-name">Jorge Pérez Gómez</p>
+      </div>
+
+      <h3 class="blessing-title">CON LA BENDICIÓN DE MIS</h3>
+      <h4 class="godparents-text">PADRINOS:</h4>
+
+      <div class="godparents-info">
+        <p class="godparent-name">Luis Pérez</p>
+        <p class="godparent-name">Ana Torres Ruiz</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Details Section -->
+  <section class="event-details-section">
+    <div class="event-bg">
+      <div class="invitation-header">
+        <h2>TE INVITAMOS A CELEBRAR ESTE DÍA TAN ESPECIAL</h2>
+        <h3>PARA NOSOTROS</h3>
+      </div>
+
+      <div class="event-info">
+        <div class="date-circle">
+          <div class="date-content">
+            <span class="day">SÁBADO</span>
+            <span class="number">7</span>
+            <span class="month">MARZO</span>
+            <span class="year">2026</span>
+          </div>
+        </div>
+
+        <div class="event-details">
+          <div class="event-item">
+            <h4>MISA</h4>
+            <p>PARROQUIA DE EJEMPLO</p>
+            <p>CIUDAD DE MÉXICO</p>
+          </div>
+
+          <div class="event-item">
+            <h4>RECEPCIÓN</h4>
+            <p>JARDÍN DE EVENTOS</p>
+            <div class="map-icon">📍</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative bees -->
+      <div class="flying-bees">
+        <div class="bee-trail bee-trail-1">🐝</div>
+        <div class="bee-trail bee-trail-2">🐝</div>
+        <div class="bee-trail bee-trail-3">🐝</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP Section -->
+  <section class="rsvp-section">
+    <div class="rsvp-content">
+      <h2>CONFIRMA TU ASISTENCIA</h2>
+
+      <div class="rsvp-info">
+        <div class="contact-info">
+          <div class="phone-icon">💕</div>
+          <p><strong>Número de Teléfono que te</strong></p>
+          <p><strong>lleve directo a confirmar</strong></p>
+        </div>
+
+        <div class="guest-info">
+          <div class="people-icon">👥</div>
+          <p><strong>Número de personas</strong></p>
+          <p>(quisiéramos poner en cada</p>
+          <p>invitación la cantidad de</p>
+          <p>personas no se si se podría)</p>
+        </div>
+      </div>
+
+      <div class="countdown-section">
+        <h3>Event</h3>
+        <div class="countdown-timer">
+          <div class="time-unit">
+            <span class="time-number">{{ countdown.days }}</span>
+            <span class="time-label">days</span>
+          </div>
+          <span class="colon">:</span>
+          <div class="time-unit">
+            <span class="time-number">{{ countdown.hours }}</span>
+            <span class="time-label">hours</span>
+          </div>
+          <span class="colon">:</span>
+          <div class="time-unit">
+            <span class="time-number">{{ countdown.minutes }}</span>
+            <span class="time-label">minutes</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="custom-note">QUISIERA PONERLE ALGO ASI</h3>
+    </div>
+  </section>
+
+  <!-- Confirmation Form Section -->
+  <section class="confirmation-section" id="confirmation">
+    <h4 *ngIf="showSectionConfirmation">Confirma tu asistencia</h4>
+    <p class="access-info" *ngIf="showSectionConfirmation">Tienes los siguientes accesos</p>
+
+    <form class="confirmation-form" *ngIf="showSectionConfirmation" (ngSubmit)="confirmAttendance()">
+      @for (access of familyAccesses; track access.id) {
+        <div class="form-group">
+          <label for="{{access.id}}">Nombre Completo</label>
+          <input
+            type="text"
+            [(ngModel)]="access.memberName"
+            name="name-{{ access.id }}"
+            required
+            class="form-input"
+            readonly
+          />
+        </div>
+
+        <div class="attendance-group">
+          <label>Asistencia:</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input
+                type="radio"
+                name="attendance-{{ access.id }}"
+                [value]="true"
+                [(ngModel)]="access.confirmed"
+              />
+              <span class="radio-text">Sí, asistiré</span>
+            </label>
+            <label class="radio-label">
+              <input
+                type="radio"
+                name="attendance-{{ access.id }}"
+                [value]="false"
+                [(ngModel)]="access.confirmed"
+              />
+              <span class="radio-text">No podré asistir</span>
+            </label>
+          </div>
+        </div>
+      }
+
+      <button
+        type="submit"
+        class="submit-button"
+        [disabled]="isSubmitting"
+      >
+        {{ isSubmitting ? 'Enviando...' : 'Confirmar Asistencia' }}
+      </button>
+    </form>
+
+    <!-- Success Message -->
+    <div class="confirmation-message" *ngIf="!showSectionConfirmation">
+      <h3>¡Gracias por confirmar tu asistencia!</h3>
+      <p>Te esperamos con mucho cariño el 7 de marzo para celebrar el bautizo de Sofía.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-section">
+    <div class="footer-content">
+      <h3>Sofía</h3>
+      <p>7 • Marzo • 2026 | MI BAUTIZO</p>
+    </div>
+  </footer>
+</div>

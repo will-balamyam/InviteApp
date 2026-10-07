@@ -1,0 +1,42 @@
+<!-- Sidebar -->
+<div class="sidebar d-flex flex-column" [class.hidden]="isSidebarHidden">
+  <div class="sidebar-header text-center">
+    <span>Invitations</span>
+  </div>
+  <nav class="nav flex-column mt-3">
+    <a class="nav-link" [class.active]="isActive('/admin/invitations')" routerLink="/admin/invitations"><i class="material-icons">mail</i> Invitaciones</a>
+    <a class="nav-link" [class.active]="isActive('/admin/families')" routerLink="/admin/families"><i class="material-icons">family_restroom</i> Familias</a>
+    <a class="nav-link" [class.active]="isActive('/admin/access')" routerLink="/admin/access"><i class="material-icons">mark_as_unread</i> Accesos familias</a>
+    <a class="nav-link" (click)="logout()"><i class="material-icons">logout</i> Logout</a>
+  </nav>
+</div>
+
+<!-- Top Navbar -->
+<nav class="navbar navbar-expand navbar-light shadow-sm" [class.navbar-expanded]="isSidebarHidden">
+  <div class="container-fluid">
+    <button class="d-flex btn btn-outline-secondary" (click)="toggleSidebar()">
+      <i class="material-icons">menu</i><!-- Hamburger icon -->
+    </button>
+    <ul class="navbar-nav ms-auto align-items-center">
+      <li class="nav-item me-3">
+        <a class="nav-link" href="#"><i class="bi bi-bell"></i></a>
+      </li>
+      <li class="nav-item me-3">
+        <a class="nav-link" href="#"><i class="bi bi-gear"></i></a>
+      </li>
+      <li class="nav-item">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar" class="rounded-circle" width="36">
+      </li>
+      <li class="nav-item ms-2">
+        <span class="fw-bold">{{ user['name'] }}</span>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<div class="content">
+  <div class="content-wrapper">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<!--<div class="d-flex vh-100 align-items-center justify-content-center bg-light">
+  <div class="card shadow-sm" style="width: 350px;">
+    <div class="card-body">
+      <h5 class="card-title text-center mb-4">Login</h5>
+      <form [formGroup]="formLogin">
+        <div class="mb-3">
+          <label for="user" class="form-label">User</label>
+          <input type="text" class="form-control" formControlName="user" id="user" placeholder="Enter your username" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" formControlName="password" id="password" placeholder="Enter your password" required>
+        </div>
+        <button type="button" class="btn btn-primary w-100" (click)="login()">Login</button>
+      </form>
+    </div>
+  </div>
+</div>-->
+
+<!--<div class="d-flex vh-100 align-items-center justify-content-center bg-light">
+  <div class="text-center" style="width: 300px;">
+    <h2 class="mb-4" style="font-family: 'Georgia', serif; color: #6c757d;">Welcome</h2>
+    <form [formGroup]="formLogin">
+      <div class="mb-3">
+        <input type="text" class="form-control form-control-lg rounded-pill" formControlName="user" id="user" placeholder="Username" required>
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control form-control-lg rounded-pill" formControlName="password" id="password" placeholder="Password" required>
+      </div>
+      <button type="button" class="btn btn-primary btn-lg rounded-pill w-100" (click)="login()">Login</button>
+    </form>
+  </div>
+</div>-->
+<div class="login-container">
+  <div class="login-card mx-auto">
+    <div class="wedding-icon">
+      <svg width="48" height="48" fill="none" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#eaf4e2"/><path d="M24 34c-5 0-9-4-9-9 0-3.5 2-6.5 5-8.1V14a4 4 0 1 1 8 0v2.9c3 1.6 5 4.6 5 8.1 0 5-4 9-9 9zm0-22a2 2 0 0 0-2 2v2.3a9 9 0 0 1 4 0V14a2 2 0 0 0-2-2z" fill="#dea57a"/></svg>
+    </div>
+    <h2>Bienvenido a la Boda</h2>
+    <form [formGroup]="formLogin">
+      <div class="mb-3">
+        <input type="text" class="form-control" formControlName="user" id="user" placeholder="Ingresa tu nombre de usuario" required>
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control" formControlName="password" id="password" placeholder="Ingresa tu contraseña" required>
+      </div>
+      <button type="button" class="btn btn-primary w-100 mb-2" (click)="login()">Login</button>
+    </form>
+    <small>Tu acceso es personal. Si tienes dudas, contacta al administrador del sistema.</small>
+  </div>
+</div>

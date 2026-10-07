@@ -1,0 +1,211 @@
+<div class="invitation-container">
+  <div  class="video-hero-container">
+    <video
+      #heroVideo
+      autoplay
+      muted
+      playsinline
+      class="hero-video"
+    >
+      <source src="assets/videos/videoprincipal.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <h1 class="couple-names">{{ coupleNames }}</h1>
+          <p class="wedding-date">&#x2665; 13 · Diciembre · 2025 | NUESTRA BODA &#x2665;</p>
+        </div>
+      </div>
+    </section>
+    <!-- Countdown Section -->
+      <section class="countdown-section">
+        <div class="countdown-wrapper">
+          <div class="countdown-item">
+            <span class="countdown-digits">{{ countdown.days }}</span>
+            <span class="countdown-label">DÍAS</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-digits">{{ countdown.hours }}</span>
+            <span class="countdown-label">HORAS</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-digits">{{ countdown.minutes }}</span>
+            <span class="countdown-label">MINUTOS</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-digits">{{ countdown.seconds }}</span>
+            <span class="countdown-label">SEGUNDOS</span>
+          </div>
+        </div>
+      </section>
+  </div>
+
+  <!-- Wedding Announcement -->
+  <section class="announcement-section">
+    <h2>¡Nos Casamos!</h2>
+    <p>Y queremos que vivas este momento<br>tan especial junto a nosotros.</p>
+  </section>
+
+  <!-- Event Details -->
+  <section class="details-section" id="details">
+    <h2>¿Dónde y cuándo?</h2>
+
+    <!-- Ceremonia -->
+    <div class="event-card">
+      <div class="event-image">
+        <img style="width: 100%;height: auto;border-radius: 10px;margin-bottom: 1rem;" src="assets/images/iglesiapdc1.jpeg" alt="Catedral" />
+      </div>
+      <h3>Ceremonia religiosa</h3>
+      <h4>13 Diciembre 2025 | 12:00 hrs</h4>
+      <h5>Parroquia de Ejemplo</h5>
+      <p>Av. Principal 123, Centro, 06000 <span style="color: red">Ciudad de México</span>, CDMX</p>
+      <button class="map-button" (click)="openLink('https://maps.google.com/?q=Z%C3%B3calo+CDMX')">
+        Ver en el mapa
+      </button>
+    </div>
+
+    <!-- Recepción -->
+    <div class="event-card">
+      <div class="event-image">
+        <img src="assets/images/party.png" alt="Recepción" />
+      </div>
+      <h3>Ceremonia civil y recepción</h3>
+      <h4>{{ receptionTime }}</h4>
+      <h5>Jardín de Eventos Ejemplo</h5>
+      <p>Calle Ejemplo 45, Centro, 06000 Ciudad de México, CDMX</p>
+      <button class="map-button" (click)="openLink('https://maps.google.com/?q=Z%C3%B3calo+CDMX')">
+        Ver en el mapa
+      </button>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <div class="gallery-image">
+      <img src="assets/images/sesion/IMG_4874.jpg" alt="Luis y Ana" />
+    </div>
+  </section>
+
+  <!-- Dress Code & RSVP -->
+  <section class="gifts-section" id="rsvp">
+    <h2>Código de vestimenta</h2>
+    <h3>Formal</h3>
+    <p>Dejen el blanco y colores pasteles similares para la novia, por favor NO usar los siguientes colores</p>
+    <p>Mujeres</p>
+    <div class="image-container">
+      <img src="assets/images/colores1.png" alt="Luis y Ana"  />
+    </div>
+    <p>Hombres</p>
+    <div class="image-container">
+      <img src="assets/images/colores2.png" alt="Luis y Ana" />
+    </div>
+  </section>
+  <section class="rsvp-section" id="rsvp2">
+    <h4 *ngIf="showSectionConfirmation">Confirma tu asistencia</h4>
+    <p class="no-kids" *ngIf="showSectionConfirmation">Tienes los siguientes accesos</p>
+
+    <form class="rsvp-form" *ngIf="showSectionConfirmation" (ngSubmit)="confirmAttendance()">
+      @for (access of familyAccesses; track access.id) {
+        <div class="form-group">
+          <label for="{{access.id}}">Nombre Completo</label>
+          <input
+            type="text"
+            [(ngModel)]="access.memberName"
+            name="name-{{ access.id }}"
+            required
+            class="form-input"
+            readonly
+          />
+        </div>
+
+        <div class="form-group">
+          <label>¿Asistirá?</label>
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input
+                type="checkbox"
+                name="confirmed-{{ access.id }}"
+                [(ngModel)]="access.confirmed"
+              />
+              Si, asistiré.
+            </label>
+          </div>
+        </div>
+      }
+      <button
+        type="submit"
+        class="submit-button"
+        [disabled]="isSubmitting"
+      >
+        {{ isSubmitting ? 'Enviando...' : 'Confirmar Asistencia' }}
+      </button>
+    </form>
+
+    <!-- Confirmación exitosa -->
+    <div class="confirmation-message" *ngIf="!showSectionConfirmation">
+      <h3>¡Gracias por confirmar tu asistencia!</h3>
+      <p>Te esperamos con mucho cariño el 13 de diciembre.</p>
+    </div>
+  </section>
+
+  <!-- Save the Date Gallery -->
+  <section class="save-date-section">
+    <h2>Save the date</h2>
+    <div class="save-date-gallery">
+      <img src="assets/images/sesion/IMG_4842.jpg" alt="Ana & Luis" />
+      <h3>Ana & Luis</h3>
+      <img src="assets/images/sesion/IMG_4845.jpg" alt="Pareja" />
+      <h4>13.12.2025</h4>
+      <img src="assets/images/sesion/IMG_4846.jpg" alt="Save the date" />
+    </div>
+  </section>
+
+  <!-- Mesa de Regalos -->
+  <section class="gifts-section" id="gifts">
+    <h2>Mesa de regalos</h2>
+    <p>El mejor regalo es tu presencia, pero si deseas hacernos llegar un bonito detalle lo recibiremos con mucho cariño.</p>
+
+    <!-- Liverpool -->
+    <div class="gift-store">
+      <img src="assets/images/liverpool.webp" alt="Liverpool" class="store-logo" />
+      <h4>no. de evento: 00000000</h4>
+      <button class="gift-button" (click)="openLink('https://mesaderegalos.liverpool.com.mx/milistaderegalos/00000000')">
+        Ver mesa de regalos
+      </button>
+    </div>
+
+  </section>
+
+  <!-- Hashtag Section -->
+  <section class="hashtag-section">
+    <div class="hashtag-content">
+      <div class="hashtag-text">
+        <h3>durante nuestra boda utiliza el hashtag</h3>
+      </div>
+      <div class="hashtag-info">
+        <h2>{{invitationData?.eventHashtag}}</h2>
+        <p>Comparte tus fotografías y videos<br>con nosotros en redes sociales.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Love Story -->
+  <section class="love-story-section">
+    <h2>love story</h2>
+    <div class="story-gallery">
+      <img src="assets/images/sesion/IMG_4882.jpg" alt="Historia de amor" />
+      <img src="assets/images/sesion/IMG_4883.jpg" alt="Pareja" />
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-section">
+    <div class="footer-content">
+      <h1 class="couple-names">{{ coupleNames }}</h1>
+      <p class="wedding-date">&#x2665; 13 · Diciembre · 2025 | NUESTRA BODA &#x2665;</p>
+    </div>
+  </footer>
+
+</div>

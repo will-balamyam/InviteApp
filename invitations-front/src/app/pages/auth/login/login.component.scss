@@ -1,0 +1,44 @@
+.login-container{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+}
+.login-card .form-control {
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
+  background: #f7f7f7;
+}
+.login-card .btn-primary {
+  border-radius: 8px;
+  background: #204441;
+  border: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.login-card .btn-primary:hover {
+  background: #4e8156;
+}
+.wedding-icon {
+  font-size: 2.5rem;
+  color: #dea57a;
+  margin-bottom: 1rem;
+}
+.login-card h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #204441;
+}
+.login-card small {
+  color: #888;
+}

@@ -1,0 +1,47 @@
+
+<div class="d-flex justify-content-between align-items-center">
+  <h3>Familias</h3>
+  <button class="d-flex btn btn-primary" routerLink="/admin/families/add"><i class="material-icons">add_circle</i> Agregar</button>
+</div>
+
+<div class="d-flex justify-content-center pt-4">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre de la familia</th>
+      <th scope="col">Código de la familia</th>
+      <th scope="col">Correo de contacto</th>
+      <th scope="col">Número de contacto</th>
+      <th scope="col">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (family of families; track family.id) {
+        <tr>
+          <td>{{ family.id}}</td>
+          <td>{{ family.familyName }}</td>
+          <td>{{ family.familyCode }}</td>
+          <td>{{ family.contactEmail }}</td>
+          <td>{{ family.contactPhone }}</td>
+          <td>
+            <button class="d-inline-flex btn btn-success btn-sm me-2" [routerLink]="['/admin/families/edit/'+family.id]">
+              <i class="material-icons">edit</i>
+            </button>
+            <button class="d-inline-flex btn btn-secondary btn-sm me-2" (click)="sendInvitationWhats(family.id!)">
+              <i class="material-icons">perm_phone_msg</i>
+            </button>
+            <button class="d-inline-flex btn btn-danger btn-sm" (click)="deleteFamily(family.id!)">
+              <i class="material-icons">delete</i>
+            </button>
+          </td>
+        </tr>
+      }
+      @if (families.length === 0) {
+        <tr>
+          <td colspan="6" class="text-center">No se encontraron familias</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

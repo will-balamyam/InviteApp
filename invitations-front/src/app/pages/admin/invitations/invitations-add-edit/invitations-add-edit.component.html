@@ -1,0 +1,64 @@
+<div class="container mt-4">
+  <h3 class="text-center">{{ isEditMode ? 'Edit Event' : 'Add Event' }}</h3>
+  <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="eventName" class="form-label">Event Name</label>
+        <input type="text" id="eventName" class="form-control" formControlName="eventName" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="eventCode" class="form-label">Event Code</label>
+        <input type="text" id="eventCode" class="form-control" formControlName="eventCode" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="eventHashtag" class="form-label">Event Hashtag</label>
+        <input type="text" id="eventHashtag" class="form-control" formControlName="eventHashtag" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="eventDate" class="form-label">Event Date</label>
+        <input type="date" id="eventDate" class="form-control" formControlName="eventDate" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="eventPartyTime" class="form-label">Party Time</label>
+        <input type="time" id="eventPartyTime" class="form-control" formControlName="eventPartyTime" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="eventLocationName" class="form-label">Location Name</label>
+        <input type="text" id="eventLocationName" class="form-control" formControlName="eventLocationName" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="eventLocationDescription" class="form-label">Location Description</label>
+        <input type="text" id="eventLocationDescription" class="form-control" formControlName="eventLocationDescription" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="eventLocationLink" class="form-label">Location Link</label>
+        <input type="url" id="eventLocationLink" class="form-control" formControlName="eventLocationLink" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="giftTableNumber" class="form-label">Gift Table Number</label>
+        <input type="text" id="giftTableNumber" class="form-control" formControlName="giftTableNumber" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="giftTableLink" class="form-label">Gift Table Link</label>
+        <input type="url" id="giftTableLink" class="form-control" formControlName="giftTableLink" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="eventDressCode" class="form-label">Dress Code</label>
+        <input type="text" id="eventDressCode" class="form-control" formControlName="eventDressCode" required>
+      </div>
+      <div class="col-md-12 mb-3">
+        <label for="eventDescription" class="form-label">Event Description</label>
+        <textarea id="eventDescription" class="form-control" formControlName="eventDescription" rows="3" required></textarea>
+      </div>
+      <div class="col-md-12 mb-3">
+        <label for="eventDataParents" class="form-label">Data Parents</label>
+        <textarea id="eventDataParents" class="form-control" formControlName="eventDataParents" rows="3" required></textarea>
+      </div>
+      <div class="col-md-12 mb-3">
+        <label for="eventDataSponsors" class="form-label">Data Sponsors</label>
+        <textarea id="eventDataSponsors" class="form-control" formControlName="eventDataSponsors" rows="3" required></textarea>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">{{ isEditMode ? 'Update Event' : 'Create Event' }}</button>
+  </form>
+</div>

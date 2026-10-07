@@ -1,0 +1,42 @@
+
+<div class="d-flex justify-content-between align-items-center">
+  <h3>Listado de accesos de familias</h3>
+  <button class="d-flex btn btn-primary" routerLink="/admin/access/add"><i class="material-icons">add_circle</i> Agregar</button>
+</div>
+
+<div class="d-flex justify-content-center pt-4">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Nombre</th>
+      <th>Familia</th>
+      <th>Confirmado</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (access of familyAccessList; track access.id) {
+        <tr>
+          <td>{{ access.id }}</td>
+          <td>{{ access.memberName }}</td>
+          <td>{{ access.family?.familyName }}</td>
+          <td>{{ access.confirmed == null ? '' : access.confirmed ? 'Sí' : 'No' }}</td>
+          <td>
+            <button class="d-inline-flex btn btn-success btn-sm me-2" [routerLink]="['/admin/access/edit/'+access.id]">
+              <i class="material-icons">edit</i>
+            </button>
+            <button class="d-inline-flex btn btn-danger btn-sm" (click)="deleteAccess(access.id!)">
+              <i class="material-icons">delete</i>
+            </button>
+          </td>
+        </tr>
+      }
+      @if (familyAccessList.length === 0) {
+        <tr>
+          <td colspan="4" class="text-center">No se encontraron accesos</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

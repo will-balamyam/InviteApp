@@ -1,0 +1,28 @@
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+import {DocumentBuilder, SwaggerModule} from "@nestjs/swagger";
+import {ResponseInterceptor} from "./interceptors/response/response.interceptor";
+import {ErrorInterceptor} from "./interceptors/error/error.interceptor";
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  // CORS para Azure
+  app.enableCors({
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    allowedHeaders: 'Content-Type, Accept, Authorization',
+  });
+
+  const config = new DocumentBuilder()
+      .setTitle('API Documentation')
+      .setDescription('API endpoints and schemas')
+      .setVersion('1.0')
+      .build();
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('swagger', app, document);
+
+  app.useGlobalInterceptors(new ResponseInterceptor(), new ErrorInterceptor());
+
+  await app.listen(process.env.PORT ?? 3000);
+}
+bootstrap();

@@ -1,0 +1,1219 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+// Music Controls
+.music-controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+
+  .music-toggle-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #e8c4a0;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background: rgba(232, 196, 160, 0.2);
+      transform: scale(1.1);
+    }
+
+    &.playing {
+      background: rgba(232, 196, 160, 0.9);
+      border-color: #d4b896;
+      animation: pulse 2s infinite;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(232, 196, 160, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(232, 196, 160, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(232, 196, 160, 0);
+  }
+}
+
+.invitation-container {
+  font-family: 'Montserrat', sans-serif;
+  background: #f8f6f3;
+  color: #5a5a5a;
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+// Hero Section - Primera imagen del PDF
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fdf8f2 0%, #f2e8dd 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    min-height: 80vh;
+    padding: 2rem 1rem;
+  }
+}
+
+.hero-background {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+  width: 100%;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.flowers-decoration {
+  position: absolute;
+  width: 150px;
+  height: 200px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="30" cy="40" r="15" fill="%23f4d1ae" opacity="0.7"/><circle cx="60" cy="30" r="12" fill="%23e8c4a0" opacity="0.8"/><path d="M20,60 Q40,45 60,60 Q40,75 20,60" fill="%23d4b896" opacity="0.6"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  &.left-flowers {
+    top: 10%;
+    left: 5%;
+    transform: rotate(-15deg);
+  }
+
+  &.right-flowers {
+    top: 10%;
+    right: 5%;
+    transform: rotate(15deg) scaleX(-1);
+  }
+
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 130px;
+  }
+}
+
+.cross-decoration {
+  position: absolute;
+  top: 5%;
+  right: 15%;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(45deg, #d4af37, #f4d03f);
+  clip-path: polygon(40% 0%, 60% 0%, 60% 40%, 100% 40%, 100% 60%, 60% 60%, 60% 100%, 40% 100%, 40% 60%, 0% 60%, 0% 40%, 40% 40%);
+  opacity: 0.8;
+
+  @media (max-width: 768px) {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.bees-decoration {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  .bee {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: fly 6s infinite linear;
+
+    &.bee-1 {
+      top: 20%;
+      left: 20%;
+      animation-delay: 0s;
+    }
+
+    &.bee-2 {
+      top: 60%;
+      right: 25%;
+      animation-delay: 2s;
+    }
+
+    &.bee-3 {
+      bottom: 30%;
+      left: 70%;
+      animation-delay: 4s;
+    }
+  }
+}
+
+@keyframes fly {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(10px, -15px) rotate(5deg); }
+  50% { transform: translate(-5px, 10px) rotate(-3deg); }
+  75% { transform: translate(15px, 5px) rotate(3deg); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+}
+
+.event-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 5rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-weight: normal;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+
+  @media (max-width: 768px) {
+    font-size: 3.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2.8rem;
+  }
+}
+
+.subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  color: #34495e;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+}
+
+.dots-divider {
+  font-size: 1.2rem;
+  color: #d4af37;
+  margin: 2rem 0;
+  letter-spacing: 3px;
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+}
+
+.child-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
+  background: linear-gradient(45deg, #8e44ad, #e74c3c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2.2rem;
+  }
+}
+
+// Gratitude Section - Segunda imagen del PDF
+.gratitude-section {
+  background: linear-gradient(135deg, #f8e8f5 0%, #f0d0e8 100%);
+  padding: 4rem 2rem;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 3rem 1.5rem;
+  }
+}
+
+.pink-flowers-bg {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, #e8c5d8 30%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.6;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #d5a6c8 30%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.6;
+  }
+}
+
+.gratitude-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+
+  h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-weight: 600;
+
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #34495e;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+
+    &.golden-text {
+      color: #d4af37;
+      font-weight: 600;
+      font-size: 1.3rem;
+    }
+
+    &.signature {
+      font-style: italic;
+      font-size: 1.05rem;
+      margin-top: 2rem;
+      color: #2c3e50;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+
+      &.golden-text {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+// Photo Section - Tercera imagen del PDF
+.photo-section {
+  background: linear-gradient(135deg, #fdf2f8 0%, #fce4ec 100%);
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 3rem 1rem;
+  }
+}
+
+.photo-frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.geometric-frame {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  overflow: hidden;
+  border: 4px solid #d4af37;
+
+  @media (max-width: 768px) {
+    width: 250px;
+    height: 250px;
+  }
+
+  @media (max-width: 480px) {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.child-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.decorative-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+  .butterfly {
+    position: absolute;
+    font-size: 2rem;
+    animation: flutter 4s infinite ease-in-out;
+
+    &.butterfly-1 {
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    &.butterfly-2 {
+      top: 20%;
+      right: 15%;
+      animation-delay: 1.5s;
+    }
+
+    &.butterfly-3 {
+      bottom: 15%;
+      left: 20%;
+      animation-delay: 3s;
+    }
+  }
+
+  .bee-decoration {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 1.8rem;
+    animation: bounce 2s infinite;
+  }
+
+  .sun-decoration {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    font-size: 2.5rem;
+    animation: rotate 10s infinite linear;
+  }
+}
+
+@keyframes flutter {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(5px, -10px) rotate(5deg); }
+  50% { transform: translate(-3px, 5px) rotate(-3deg); }
+  75% { transform: translate(8px, 2px) rotate(2deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.name-overlay {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  background: linear-gradient(45deg, #8e44ad, #e74c3c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
+}
+
+// Family Section - Cuarta imagen del PDF
+.family-section {
+  background: linear-gradient(135deg, #fff5f5 0%, #ffeaa7 100%);
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+
+  &::before, &::after {
+    content: '🌸';
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.3;
+  }
+
+  &::before {
+    top: 20%;
+    left: 10%;
+  }
+
+  &::after {
+    bottom: 20%;
+    right: 10%;
+  }
+
+  @media (max-width: 768px) {
+    padding: 3rem 1.5rem;
+  }
+}
+
+.family-content {
+  max-width: 700px;
+  margin: 0 auto;
+
+  .grateful-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    color: #8e44ad;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.4rem;
+    }
+  }
+
+  .vida-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: #d4af37;
+    font-weight: 600;
+    margin-bottom: 2rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
+  }
+
+  .blessing-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    color: #8e44ad;
+    font-weight: 600;
+    margin: 3rem 0 0.5rem 0;
+
+    @media (max-width: 768px) {
+      font-size: 1.4rem;
+      margin: 2.5rem 0 0.5rem 0;
+    }
+  }
+
+  .godparents-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: #d4af37;
+    font-weight: 600;
+    margin-bottom: 2rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.parents-info, .godparents-info {
+  .parent-name, .godparent-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin: 1rem 0;
+    font-weight: 500;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+// Event Details Section - Quinta imagen del PDF
+.event-details-section {
+  background: linear-gradient(135deg, #e8f5e8 0%, #ff9ff3 100%);
+  padding: 4rem 2rem;
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    padding: 3rem 1rem;
+    min-height: 70vh;
+  }
+}
+
+.event-bg {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  z-index: 2;
+}
+
+.invitation-header {
+  margin-bottom: 3rem;
+
+  h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.2rem;
+    }
+  }
+
+  h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: #34495e;
+    font-weight: 500;
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.event-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+.date-circle {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, #d4af37, #f4d03f);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+
+  @media (max-width: 480px) {
+    width: 150px;
+    height: 150px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 3px solid #d4af37;
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+}
+
+.date-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #2c3e50;
+
+  .day {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    @media (max-width: 480px) {
+      font-size: 1rem;
+    }
+  }
+
+  .number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0.5rem 0;
+
+    @media (max-width: 480px) {
+      font-size: 3rem;
+    }
+  }
+
+  .month {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    @media (max-width: 480px) {
+      font-size: 1rem;
+    }
+  }
+
+  .year {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+
+    @media (max-width: 480px) {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  @media (max-width: 768px) {
+    gap: 2rem;
+  }
+}
+
+.event-item {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #34495e;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  .map-icon {
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.5rem;
+  }
+}
+
+.flying-bees {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+  .bee-trail {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: flyAround 8s infinite linear;
+
+    &.bee-trail-1 {
+      top: 10%;
+      left: 5%;
+      animation-delay: 0s;
+    }
+
+    &.bee-trail-2 {
+      top: 70%;
+      right: 10%;
+      animation-delay: 3s;
+    }
+
+    &.bee-trail-3 {
+      bottom: 20%;
+      left: 20%;
+      animation-delay: 6s;
+    }
+  }
+}
+
+@keyframes flyAround {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(50px, -30px) rotate(90deg); }
+  50% { transform: translate(0, -60px) rotate(180deg); }
+  75% { transform: translate(-50px, -30px) rotate(270deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+// RSVP Section - Sexta imagen del PDF
+.rsvp-section {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  padding: 4rem 2rem;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 3rem 1.5rem;
+  }
+}
+
+.rsvp-content {
+  max-width: 700px;
+  margin: 0 auto;
+
+  h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 3rem;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.rsvp-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.contact-info, .guest-info {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+  .phone-icon, .people-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #34495e;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.5rem;
+  }
+}
+
+.countdown-section {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 15px;
+  margin: 3rem 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.5rem;
+  }
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  @media (max-width: 480px) {
+    gap: 0.5rem;
+  }
+}
+
+.time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .time-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  .time-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    font-weight: 500;
+
+    @media (max-width: 480px) {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.colon {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c3e50;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
+}
+
+.custom-note {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  font-style: italic;
+  margin-top: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+// Confirmation Form Section
+.confirmation-section {
+  background: linear-gradient(135deg, #fff9c4 0%, #f39c12 100%);
+  padding: 4rem 2rem;
+  text-align: center;
+
+  h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.6rem;
+    }
+  }
+
+  .access-info {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #34495e;
+    margin-bottom: 2rem;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 3rem 1.5rem;
+  }
+}
+
+.confirmation-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    padding: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.5rem;
+  }
+}
+
+.form-group {
+  margin-bottom: 2rem;
+  text-align: left;
+
+  label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ecf0f1;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    background-color: #f8f9fa;
+
+    &:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    }
+  }
+}
+
+.attendance-group {
+  margin-bottom: 2rem;
+  text-align: left;
+
+  > label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 1rem;
+  }
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (max-width: 480px) {
+    gap: 0.8rem;
+  }
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 1rem;
+  background: #f8f9fa;
+  border: 2px solid #ecf0f1;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #e9ecef;
+    border-color: #3498db;
+  }
+
+  input[type="radio"] {
+    margin-right: 1rem;
+    transform: scale(1.2);
+    accent-color: #3498db;
+  }
+
+  .radio-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #2c3e50;
+    font-weight: 500;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.8rem;
+
+    input[type="radio"] {
+      margin-right: 0.8rem;
+    }
+
+    .radio-text {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.submit-button {
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.9rem 2rem;
+    font-size: 0.9rem;
+  }
+}
+
+.confirmation-message {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(46, 204, 113, 0.1);
+  border: 2px solid #2ecc71;
+  padding: 3rem;
+  border-radius: 20px;
+
+  h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    color: #27ae60;
+    font-weight: 700;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #2c3e50;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.5rem;
+  }
+}
+
+// Footer Section
+.footer-section {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  padding: 3rem 2rem;
+  text-align: center;
+  color: white;
+
+  @media (max-width: 768px) {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+
+  h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 2rem;
+    }
+  }
+
+  p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0.9;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .invitation-container {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .invitation-container {
+    font-size: 13px;
+  }
+
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
